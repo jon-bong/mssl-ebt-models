@@ -1,6 +1,6 @@
 # MSSL EBT System Data Message Model and Interface Definitions
 
-![GitHub Release](https://img.shields.io/github/v/release/jon-bong/mssl-ebt-models)
+![GitHub Release](https://img.shields.io/github/v/release/jon-bong/mssl.ebt-models)
 [![NuGet Version (Emc.SewPlus.Nems.Models)](https://img.shields.io/nuget/v/Mssl.Ebt.Models.svg?style=flat-square)](https://www.nuget.org/packages/Mssl.Ebt.Models/)
 ![NuGet Downloads](https://img.shields.io/nuget/dt/Mssl.Ebt.Models)
 ![GitHub License](https://img.shields.io/github/license/jon-bong/mssl-ebt-models)
@@ -28,10 +28,10 @@ Install-Package Mssl.Ebt.Models.x.x.x.nupkg
 ```
 
 ## 🛠️ Quick Start & Usage
-This package contains classes that serialise data ito send to the EBT system and deserialise messages received from the EBT system.
+This package contains classes that serialise data to send to the EBT system and deserialise messages received from the EBT system.
 
-### Transactional Messages
-Transactional messages exchanged between the EBT system and its system participants are in pure XML format.
+### Transaction Messages
+Transaction messages exchanged between the EBT system and its system participants are in XML format.
 
 For example, a "Validation Acknowledgement" message is received as:
 
@@ -45,7 +45,7 @@ For example, a "Validation Acknowledgement" message is received as:
 
 ```
 
-The XML data can be deserialised into a `ValidationAcknowledgement` object as such:
+The XML data can be deserialised into a `ValidationAcknowledgement` object:
 
 ```csharp
 XmlSerializer xmlSerializer = new XmlSerializer(typeof(ValidationAcknowledgement));
@@ -57,11 +57,11 @@ using (StreamReader reader = new StreamReader("Validation Acknowledgement.xml"))
 ```
 
 ### Data File Interface Definitions
-Data files (in _CSV_ format) contained in messages can take two forms:
-- uncompressed data in raw `string` format
-- compressed into a _ZIP_ file and encoded as binary data in `string` format
+The contents of a data file received from the EBT system are in _CSV_ format, can are contained in an XML message in two forms:
+- as a `string` value of a child element or
+- saved in a _CSV_ file, compressed into a _ZIP_ file and then encoded as a _Base64_ `string` value (as `CDATA`) of a child element
 
-Consider an XML message containing the following compressed (indicated by the `Compressed` element with value `Y`) CSV data (indicated by the `ContentFormat` element) representing adjusted usage:
+Consider an XML message containing the following compressed (indicated by the `Compressed` element with value _Y_) CSV data (indicated by the `ContentFormat` element) representing adjusted usage:
 
 ```xml
 
@@ -82,7 +82,7 @@ Consider an XML message containing the following compressed (indicated by the `C
 
 ```
 
-To extract the data, the binary data encoded string first needs to be decoded to form a _ZIP_ file and then the CSV file extracted, and finally processed:
+To extract the data, the _Base64_ encoded string first needs to be decoded into a _ZIP_ file and then the CSV file extracted:
 ```csharp
 
 XmlSerializer xmlSerializer = new XmlSerializer(typeof(DispatchData));
@@ -109,8 +109,6 @@ using (StreamReader reader = new StreamReader("SRLP Usage Data.xml"))
 
                 // read the extracted file and process the data
                 ...
-                ...
-                ...
             }
         }
     }
@@ -134,7 +132,7 @@ Each of the following interfaces under the `Mssl.Ebt.Models.Messages.DataFiles` 
 - `IMdaAdjustedUsageAccount`: MDA-adjusted usage account.
 - `ISrlpUsageData`: Static Residential Load Profile (SRLP) Usage Data file or MDA Adjusted SRLP Usage Data file.
 
-Each of the above interfaces defines the structure of the CSV data, thus allowing itself to be implmemented by a class using a file-processing library (e.g. _CsvHelper_, _FileHelpers_) to read and write the CSV data. For example, an implementation of the `ISrlpUsageData` using the _FileHelpers_ library:
+Each of the above interfaces defines the structure of the CSV data, allowing itself to be implmemented by a class using a file-processing library (e.g. _CsvHelper_, _FileHelpers_) to read and write the CSV data. For example, an implementation of the `ISrlpUsageData` using the _FileHelpers_ library:
 
 ```csharp
 
@@ -196,15 +194,15 @@ internal class SrlpUsageData : ISrlpUsageData
 
 ```
 
-The file processing implementation can then proceed, involving the file processing library to work on the data.
+The `FileHelpersEngine<SrlpUsageData>` object then reads the CSV file and returns a collection of `SrlpUsageData` objects (`List<SrlpUsageData>`).
 
-The following classes represent a set of CSV sections in the respective data file:
+Each of the following classes represents a CSV section in its respective data file:
 - `AmiMeterUsageData`: Advanced Metering Infrastructure (AMI) usage data or MDA adjusted AMI usage data for a single metering point.
 - `ConsumerMeterHistoryData`: Consumer History Data file.
 - `SrlpMeterUsageData`: Static Residential Load Profile (SRLP) usage data or MDA adjusted SRLP usage data for a single metering point.
 
 ## 🚀 Target Frameworks
-* **.NET:** Core 3.0, Core 3.1, 5.0, 6.0, 7.0, 8.0, 9.0
+* **.NET:** Core 3.0, Core 3.1, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0
 * **.NET Framework:** 3.5, 4.0, 4.5, 4.5.2, 4.6.1, 4.6.2, 4.7.2, 4.8, 4.8.1
 * **.NET Standard:** 2.0, 2.1
 

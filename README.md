@@ -57,7 +57,7 @@ using (StreamReader reader = new StreamReader("Validation Acknowledgement.xml"))
 ```
 
 ### Data File Interface Definitions
-The contents of a data file received from the EBT system are in _CSV_ format, can are contained in an XML message in two forms:
+The contents of a data file received from the EBT system are in _CSV_ format, and are contained in an XML message in two forms:
 - as a `string` value of a child element or
 - saved in a _CSV_ file, compressed into a _ZIP_ file and then encoded as a _Base64_ `string` value (as `CDATA`) of a child element
 

@@ -37,7 +37,7 @@ Consider an incoming "Validation Acknowledgement" message received from the EBT 
 
 <?xml version="1.0" encoding="UTF-8"?>
 <ValidationAcknowledgement>
-    <TransactionId>9300009819:168025</TransactionId>
+    <TransactionId>930000XXXX:168XXX</TransactionId>
     <Result>pass</Result>
 </ValidationAcknowledgement>
 
@@ -64,7 +64,7 @@ Consider the following XML message in _SRLP Usage Data.xml_ containing compresse
 ```xml
 
 <DispatchData>
-  <TransactionId>06734455</TransactionId>
+  <TransactionId>0673XXXX</TransactionId>
   <ContentFormat>CSV</ContentFormat>
   <Compressed>Y</Compressed>
   <Data>

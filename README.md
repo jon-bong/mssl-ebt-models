@@ -10,8 +10,8 @@ Data models of transmission messages and interface definitions of files and repo
 All data models and interface definitions in this package are based on the _Market Participant User Manual_ and _Secured File Transfer Protocol Kit_ found in the [Resources: Becoming a Licensed Electricity Retailer](https://www.openelectricitymarket.sg/retailer/resources) page of the Open Electricity Market website.
 
 ## 🚀 Key Features
-- Classes and interfaces representing the data structure of EBT system transmission messages, data files and reports.
-- Interfaces can be implemented to create custom data models to integrate with any file-processing library that deals with delimited data.
+- Strongly typed classes representing transaction messages, data file and report detail records used in the EBT system.
+- Interfaces can be implemented to create custom data models to integrate with any file processing library working on delimited data.
 - Use of enumerations to represent object properties that take on a finite set of `string` values.
 
 ## 📦 Installation
@@ -27,13 +27,11 @@ dotnet add package Mssl.Ebt.Models.x.x.x.nupkg
 Install-Package Mssl.Ebt.Models.x.x.x.nupkg
 ```
 
-## 🛠️ Quick Start & Usage
-This package contains classes that serialise data to send to the EBT system and deserialise messages received from the EBT system.
+## 🛠️ Usage
+A portion of the strongly typed classes under the `Mssl.Ebt.Models.Messages` namespace in this package participate in the XML serialisation/deserialisation of transaction messages received from or submitted to the EBT system.
 
 ### Transaction Messages
-Transaction messages exchanged between the EBT system and its system participants are in XML format.
-
-For example, a "Validation Acknowledgement" message is received as:
+Consider an incoming "Validation Acknowledgement" message received from the EBT system:
 
 ```xml
 
@@ -45,7 +43,7 @@ For example, a "Validation Acknowledgement" message is received as:
 
 ```
 
-The XML data can be deserialised into a `ValidationAcknowledgement` object:
+The message can be deserialised into a `ValidationAcknowledgement` object:
 
 ```csharp
 XmlSerializer xmlSerializer = new XmlSerializer(typeof(ValidationAcknowledgement));
@@ -57,11 +55,11 @@ using (StreamReader reader = new StreamReader("Validation Acknowledgement.xml"))
 ```
 
 ### Data File Interface Definitions
-The contents of a data file received from the EBT system are in _CSV_ format, and are contained in an XML message in two forms:
-- as a `string` value of a child element or
-- saved in a _CSV_ file, compressed into a _ZIP_ file and then encoded as a _Base64_ `string` value (as `CDATA`) of a child element
+The contents of a data file received from the EBT system are in _CSV_ format, and are contained in an XML message in one of two forms:
+- a `string` value inside an element or
+- in a _CSV_ file that is first compressed into a _ZIP_ file and then encoded as a _Base64_ `string` value (as `CDATA`) inside a child element
 
-Consider an XML message containing the following compressed (indicated by the `Compressed` element with value _Y_) CSV data (indicated by the `ContentFormat` element) representing adjusted usage:
+Consider the following XML message in _SRLP Usage Data.xml_ containing compressed (the value of _Y_ in the `Compressed` element) CSV data (value in the `ContentFormat` element) on adjusted usage:
 
 ```xml
 
@@ -82,7 +80,7 @@ Consider an XML message containing the following compressed (indicated by the `C
 
 ```
 
-To extract the data, the _Base64_ encoded string first needs to be decoded into a _ZIP_ file and then the CSV file extracted:
+To obtain the data, the _Base64_ encoded string is first decoded into a _ZIP_ file and then the CSV file extracted:
 ```csharp
 
 XmlSerializer xmlSerializer = new XmlSerializer(typeof(DispatchData));
@@ -124,7 +122,7 @@ using (StreamReader reader = new StreamReader("SRLP Usage Data.xml"))
 
 ```
 
-#### CSV File Entries as Interfaces
+#### CSV File Entries Modelled As Interfaces
 Each of the following interfaces under the `Mssl.Ebt.Models.Messages.DataFiles` namespace represents a detail line in the respective CSV file:
 - `IAmiUsageData`: Advanced Metering Infrastructure (AMI) Usage Data file or MDA Adjusted AMI Usage Data file.
 - `IConsumerHistoryData`: Consumer History Data file.
@@ -132,7 +130,9 @@ Each of the following interfaces under the `Mssl.Ebt.Models.Messages.DataFiles` 
 - `IMdaAdjustedUsageAccount`: MDA-adjusted usage account.
 - `ISrlpUsageData`: Static Residential Load Profile (SRLP) Usage Data file or MDA Adjusted SRLP Usage Data file.
 
-Each of the above interfaces defines the structure of the CSV data, allowing itself to be implmemented by a class using a file-processing library (e.g. _CsvHelper_, _FileHelpers_) to read and write the CSV data. For example, an implementation of the `ISrlpUsageData` using the _FileHelpers_ library:
+Each of the above interfaces defines the base structure of the CSV data, allowing itself to be implemented by a class set up to work with a file-processing library (e.g. _CsvHelper_, _FileHelpers_) to read and write CSV data.
+
+For example, an implementation of the `ISrlpUsageData` by a class set up to work with the _FileHelpers_ library:
 
 ```csharp
 
@@ -183,7 +183,7 @@ internal class SrlpUsageData : ISrlpUsageData
     /// </summary>
     public SrlpUsageData()
     {
-        this.RecordDate = DateTime.MinValue;
+        this.RecordDate = default(DateTime);
         this.Interval = default(byte);
         this.ActiveValue = default(decimal);
         this.AdjustedActiveValue = default(decimal);
@@ -196,7 +196,8 @@ internal class SrlpUsageData : ISrlpUsageData
 
 The `FileHelpersEngine<SrlpUsageData>` object then reads the CSV file and returns a collection of `SrlpUsageData` objects (`List<SrlpUsageData>`).
 
-Each of the following classes represents a CSV section in its respective data file:
+#### CSV File Sections
+Each of the following classes represents a CSV section (a group of delimited entries) in its respective data file:
 - `AmiMeterUsageData`: Advanced Metering Infrastructure (AMI) usage data or MDA adjusted AMI usage data for a single metering point.
 - `ConsumerMeterHistoryData`: Consumer History Data file.
 - `SrlpMeterUsageData`: Static Residential Load Profile (SRLP) usage data or MDA adjusted SRLP usage data for a single metering point.

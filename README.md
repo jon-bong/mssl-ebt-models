@@ -28,7 +28,7 @@ Install-Package Mssl.Ebt.Models.x.x.x.nupkg
 ```
 
 ## 🛠️ Usage
-A portion of the strongly typed classes under the `Mssl.Ebt.Models.Messages` namespace in this package participate in the XML serialisation/deserialisation of transaction messages received from or submitted to the EBT system.
+The majority of the strongly typed classes under the `Mssl.Ebt.Models.Messages` namespace in this package participate in the XML serialisation/deserialisation of transaction messages received from or submitted to the EBT system.
 
 ### Transaction Messages
 Consider an incoming "Validation Acknowledgement" message received from the EBT system:
@@ -59,7 +59,7 @@ The contents of a data file received from the EBT system are in _CSV_ format, an
 - a `string` value inside an element or
 - in a _CSV_ file that is first compressed into a _ZIP_ file and then encoded as a _Base64_ `string` value (as `CDATA`) inside a child element
 
-Consider the following XML message in _SRLP Usage Data.xml_ containing compressed (the value of _Y_ in the `Compressed` element) CSV data (value in the `ContentFormat` element) on adjusted usage:
+Consider the following XML message in _SRLP Usage Data.xml_ containing compressed (indicated by the value _Y_ in the `Compressed` element) CSV data (indicated by the value _CSV_ in the `ContentFormat` element) on adjusted usage:
 
 ```xml
 
@@ -107,6 +107,9 @@ using (StreamReader reader = new StreamReader("SRLP Usage Data.xml"))
                     .ExtractToFile(localFile, true);
 
                 // read the extracted file and process the data
+                FileHelpersEngine<SrlpUsageData> engine = new FileHelpersEngine<SrlpUsageData>();
+                List<SrlpUsageData> srlpUsageDataList = engine.ReadFromFile(localFile);
+                ...
                 ...
             }
         }

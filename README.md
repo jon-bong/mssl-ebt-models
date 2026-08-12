@@ -55,11 +55,12 @@ using (StreamReader reader = new StreamReader("Validation Acknowledgement.xml"))
 ```
 
 ### Data File Interface Definitions
-The contents of a data file received from the EBT system are in _CSV_ format, and are contained in an XML message in one of two forms:
-- a `string` value inside an element or
-- in a _CSV_ file that is first compressed into a _ZIP_ file and then encoded as a _Base64_ `string` value (as `CDATA`) inside a child element
+The contents of a data file received from the EBT system can be in either _XML_ or _CSV_ format, indicated by the value of the `ContentFormat` element of the XML message.
 
-Consider the following XML message in _SRLP Usage Data.xml_ containing compressed (indicated by the value _Y_ in the `Compressed` element) CSV data (indicated by the value _CSV_ in the `ContentFormat` element) on adjusted usage:
+A data file can also be of a significant size and hence may be compressed using the _ZIP_ standard. A compressed data file is indicated by the value _Y_ in the `Compressed` element of the XML message.
+The compressed data takes the form of a string encoded with the Base64 Content-Transfer-Encoding algorithm and saved as `CDATA` in the `Data` element.
+
+Consider the following XML message in a file _SRLP Usage Data.xml_. The message contains a _CSV_-formatted data file in compressed form:
 
 ```xml
 
@@ -81,7 +82,8 @@ Consider the following XML message in _SRLP Usage Data.xml_ containing compresse
 
 ```
 
-To obtain the data, the _Base64_ encoded string is first decoded into a _ZIP_ file and then the CSV file extracted:
+To obtain the data, the _Base64_ encoded string is first decoded as a _ZIP_ file and then the CSV data file extracted:
+
 ```csharp
 
 XmlSerializer xmlSerializer = new XmlSerializer(typeof(DispatchData));
@@ -134,9 +136,9 @@ Each of the following interfaces under the `Mssl.Ebt.Models.Messages.DataFiles` 
 - `IMdaAdjustedUsageAccount`: MDA-adjusted usage account.
 - `ISrlpUsageData`: Static Residential Load Profile (SRLP) Usage Data file or MDA Adjusted SRLP Usage Data file.
 
-Each of the above interfaces defines the base structure of the CSV data, allowing itself to be implemented by a class set up to work with a file-processing library (e.g. _CsvHelper_, _FileHelpers_) to read and write CSV data.
+Each interface defines the base structure of the CSV data, allowing itself to be implemented by a class set up to work with a file-processing library (e.g. _CsvHelper_, _FileHelpers_) to read and write CSV data.
 
-For example, an implementation of the `ISrlpUsageData` by a class set up to work with the _FileHelpers_ library:
+For example, the following is an implementation of the `ISrlpUsageData` interface by a class that is set up to work with the _FileHelpers_ library:
 
 ```csharp
 
@@ -198,7 +200,7 @@ internal class SrlpUsageData : ISrlpUsageData
 
 ```
 
-The `FileHelpersEngine<SrlpUsageData>` object then reads the CSV file and returns a collection of `SrlpUsageData` objects (`List<SrlpUsageData>`).
+The `FileHelpersEngine<SrlpUsageData>` object then reads the CSV file and returns a collection of `SrlpUsageData` objects (`List<SrlpUsageData>`), shown in the earlier example.
 
 #### CSV File Sections
 Each of the following classes represents a CSV section (a group of delimited entries) in its respective data file:

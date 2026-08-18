@@ -1,2 +1,6 @@
 #description: "<style>.site-footer { display: none !important; }</style>"
 theme: jekyll-theme-cayman
+
+# Add this line to stop Jekyll from messing with your Sandcastle files
+exclude:
+  - docs/

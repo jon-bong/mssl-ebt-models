@@ -4,6 +4,7 @@
 [![NuGet Version (Emc.SewPlus.Nems.Models)](https://img.shields.io/nuget/v/Mssl.Ebt.Models.svg?style=flat-square)](https://www.nuget.org/packages/Mssl.Ebt.Models/)
 ![NuGet Downloads](https://img.shields.io/nuget/dt/Mssl.Ebt.Models)
 ![GitHub License](https://img.shields.io/github/license/jon-bong/mssl-ebt-models)
+[![API Docs](https://shields.io)](./docs/index.html)
 
 Data models of transmission messages and interface definitions of files and reports used by the _Electronic Business Transaction (EBT)_ system of the _Market Support Services Licensee (MSSL)_ for _Open Electricity Market (OEM)_ retailers in Singapore.
 
@@ -13,6 +14,15 @@ All data models and interface definitions in this package are based on the _Mark
 - Strongly typed classes representing transaction messages, data file and report detail records used in the EBT system.
 - Interfaces can be implemented to create custom data models to integrate with any file processing library working on delimited data.
 - Use of enumerations to represent object properties that take on a finite set of `string` values.
+
+## 📚 Technical Documentation
+The API reference guide has been generated using Sandcastle. 
+
+👉 **[Browse the API Reference Document](./docs/index.html)**
+
+### What's Inside?
+* **Namespaces & Classes:** Full code architecture breakdown.
+* **Methods & Properties:** Detailed parameter and return value info.
 
 ## 📦 Installation
 Install the package via the NuGet Package Manager Console, the Nuget Package Manager UI, the .NET CLI or by adding a package reference.

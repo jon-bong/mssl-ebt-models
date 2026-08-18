@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html ><html lang="en-US" data-theme="light"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" href="../css/bulma.min.css?v=5AD36185" /><link rel="stylesheet" href="../css/fontawesome.min.css?v=5AD36185" /><link rel="stylesheet" href="../css/solid.min.css?v=5AD36185" /><link rel="stylesheet" href="../css/regular.min.css?v=5AD36185" /><link rel="stylesheet" href="../css/brands.min.css?v=5AD36185" /><link rel="stylesheet" href="../css/presentationStyle.css?v=5AD36185" /><script src="../scripts/jquery-3.7.1.min.js"></script><script src="../scripts/clipboard.min.js?v=5AD36185"></script><script src="../scripts/highlight.min.js?v=5AD36185"></script><script src="../scripts/themeSwitcher.js?v=5AD36185"></script><script src="../scripts/presentationStyle.js?v=5AD36185"></script><title>CustomerInvoiceContent Class</title><meta name="Title" content="CustomerInvoiceContent" /><meta name="Help.Id" content="T:Mssl.Ebt.Models.Messages.DataFiles.CustomerInvoiceContent" /><meta name="Help.ContentType" content="Reference" /><meta name="container" content="Mssl.Ebt.Models.Messages.DataFiles" /><meta name="guid" content="bcd60b4e-45e8-8e63-82a0-f522cdf2a898" /><meta name="Description" content="The customer invoice that is applicable for a Market Participant Consumer (MPC) with direct access." /><meta name="tocParentId" content="5" /></head><body><header class="pageHeader" id="Header"><div class="level mb-0 py-2 px-4"><div id="TitleContainer" class="level-left"><div id="DocumentationTitle" class="level-item">MSSL EBT System Data Message Model and Interface Definitions Class Library</div></div><div id="LangFilterSearchContainer" class="level-right"><div id="ProjectLink" class="level-item" title="Project website" aria-label="Project website"><a href="https://jon-bong.github.io/mssl-ebt-models/" rel="noopener noreferrer" target="_blank"><span class="icon"><i class="fa-solid fa-file-code"></i></span></a></div><div id="ThemeSwitcher" class="level-item" title="Toggle theme" aria-label="Toggle theme"><span class="icon"><i class="fa fa-regular fa-moon theme-icon-dark"></i><i class="fa fa-sun theme-icon-light"></i></span></div><div class="level-item"><div class="dropdown is-hoverable"><div class="dropdown-trigger"><button class="button" aria-haspopup="true" aria-controls="dropdown-menu"><span id="CurrentLanguage"></span><span class="icon is-small"><i class="fa fa-angle-down" aria-hidden="true"></i></span></button></div><div class="dropdown-menu" role="menu"><div id="LanguageSelections" class="dropdown-content"><a class="dropdown-item languageFilterItem" data-languageId="cs">C#</a><a class="dropdown-item languageFilterItem" data-languageId="vb">VB</a><a class="dropdown-item languageFilterItem" data-languageId="cpp">C++</a><a class="dropdown-item languageFilterItem" data-languageId="fs">F#</a></div></div></div></div><div class="level-item"><form id="SearchForm" action="#" onsubmit="TransferToSearchPage(); return false;"><div class="field"><div class="control has-icons-left"><input id="SearchTerms" class="input" type="text" maxlength="200" placeholder="Search" /><span class="icon is-small is-left"><i class="fa fa-search"></i></span><button id="SearchButton" type="submit" class="is-hidden"></button></div></div></form></div></div></div></header><main><article><nav class="breadcrumb my-1 px-2 border-bottom" role="navigation"><ul id="TopicBreadcrumbs" /></nav><div id="ContentContainer" class="columns pl-5 pr-5"><div id="ShowHideTOCColumn" class="column is-hidden-tablet"><a id="ShowHideTOC">Show/Hide TOC</a></div><div id="TOCColumn" class="column is-hidden-mobile"><nav class="toc"><ul id="TableOfContents" class="toc-menu"><li>Loading...</li></ul></nav></div><div id="Resizer" class="is-hidden"></div><div id="TopicContent" class="column content is-7"><h1>Customer<wbr />Invoice<wbr />Content Class</h1><div class="summary">
+            The customer invoice that is applicable for a Market Participant Consumer (MPC) with direct access.
+            </div><h2 class="quickLinkHeader">Definition</h2><div id="IDBSection"><strong>Namespace:</strong> <a href="9fb56c2c-a5d6-b320-a8ba-dcafc8a4e572.htm">Mssl.Ebt.Models.Messages.DataFiles</a><br /><strong>Assembly:</strong> Mssl.Ebt.Models (in Mssl.Ebt.Models.dll) Version: 1.4.3<div class="codeSnippet" data-codeSnippetLanguage="cs"><div class="codeHeader"><span class="codeHeaderTitle">C#</span><span class="buttons"><button class="button is-small is-light copyCode" title="Copy"><span class="icon is-small"><i class="fa fa-copy"></i></span><span>Copy</span></button></span></div><div class="codePanel hljs"><pre xml:space="preserve"><code class="language-cs">[<span class="identifier">SerializableAttribute</span>]
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">CustomerInvoiceContent</span> : <span class="identifier">MsslInvoice</span></code></pre></div></div><div class="codeSnippet is-hidden" data-codeSnippetLanguage="vb"><div class="codeHeader"><span class="codeHeaderTitle">VB</span><span class="buttons"><button class="button is-small is-light copyCode" title="Copy"><span class="icon is-small"><i class="fa fa-copy"></i></span><span>Copy</span></button></span></div><div class="codePanel hljs"><pre xml:space="preserve"><code class="language-vb">&lt;<span class="identifier">SerializableAttribute</span>&gt;
+<span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">CustomerInvoiceContent</span>
+	<span class="keyword">Inherits</span> <span class="identifier">MsslInvoice</span></code></pre></div></div><div class="codeSnippet is-hidden" data-codeSnippetLanguage="cpp"><div class="codeHeader"><span class="codeHeaderTitle">C++</span><span class="buttons"><button class="button is-small is-light copyCode" title="Copy"><span class="icon is-small"><i class="fa fa-copy"></i></span><span>Copy</span></button></span></div><div class="codePanel hljs"><pre xml:space="preserve"><code class="language-cpp">[<span class="identifier">SerializableAttribute</span>]
+<span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">CustomerInvoiceContent</span> : <span class="keyword">public</span> <span class="identifier">MsslInvoice</span></code></pre></div></div><div class="codeSnippet is-hidden" data-codeSnippetLanguage="fs"><div class="codeHeader"><span class="codeHeaderTitle">F#</span><span class="buttons"><button class="button is-small is-light copyCode" title="Copy"><span class="icon is-small"><i class="fa fa-copy"></i></span><span>Copy</span></button></span></div><div class="codePanel hljs"><pre xml:space="preserve"><code class="language-fs">[&lt;<span class="identifier">SerializableAttribute</span>&gt;]
+<span class="keyword">type</span> <span class="identifier">CustomerInvoiceContent</span> = 
+    <span class="keyword">class</span>
+        <span class="keyword">inherit</span> <span class="identifier">MsslInvoice</span>
+    <span class="keyword">end</span></code></pre></div></div><dl class="inheritanceHierarchy"><dt>Inheritance</dt><dd><a href="https://learn.microsoft.com/dotnet/api/system.object" target="_blank" rel="noopener noreferrer">Object</a>  <span class="icon is-small"><i class="fa fa-arrow-right"></i></span>  <a href="8d5ac5d9-7098-ed06-b53f-d2f8deb28cb5.htm">MsslInvoice</a>  <span class="icon is-small"><i class="fa fa-arrow-right"></i></span>  <span class="selflink">CustomerInvoiceContent</span></dd></dl></div><h2 class="quickLinkHeader">Constructors</h2><div id="IDAEASection"><table id="ConstructorList" class="table is-hoverable"><tr><td><a href="245cfd3e-3e61-09e2-6524-be8af087fc2d.htm">CustomerInvoiceContent</a></td><td>
+            Creates an instance of the <span class="selflink">CustomerInvoiceContent</span> class.
+            </td></tr></table></div><h2 class="quickLinkHeader">Properties</h2><div id="IDNEASection"><table id="PropertyList" class="table is-hoverable"><tr><td><a href="798afc1b-390a-b80a-b892-c36183063b99.htm">AccountTransactions</a></td><td>
+            Transactions on consumer's account.
+            </td></tr><tr><td><a href="de2ffd91-cb5b-eb7c-d527-94b436d9bd47.htm">Addresses</a></td><td>
+            The billing address of the retailer for whom the goods and services are supplied.
+            The address consists of three individual address lines.
+            <br />(Inherited from <a href="8d5ac5d9-7098-ed06-b53f-d2f8deb28cb5.htm">MsslInvoice</a>)</td></tr><tr><td><a href="4ef38002-4fae-75a0-3429-bf63e7899f2a.htm">BalanceBF</a></td><td>
+            Balance brought forward - consumer's opening account balance for this invoice.
+            </td></tr><tr><td><a href="5f7614b1-58cc-fa40-58aa-c3236c43ad79.htm">BalanceBroughtForward</a></td><td>
+            Balance brought forward - recipient's opening account balance for this invoice.
+            <br />(Inherited from <a href="8d5ac5d9-7098-ed06-b53f-d2f8deb28cb5.htm">MsslInvoice</a>)</td></tr><tr><td><a href="fff16549-c873-f5c1-431e-429b07843851.htm">Charges</a></td><td>
+            Charge applicable for the invoice.
+            </td></tr><tr><td><a href="88917bb7-b06d-76fb-df98-8ebf8a86aa93.htm">ConsumerAddress</a></td><td>
+            The billing address of the consumer for whom the goods and services are supplied.
+            The address consists of three individual address lines.
+            </td></tr><tr><td><a href="da8f94de-986d-205c-96dc-49619f1c82bd.htm">ConsumerName</a></td><td>
+            The name of the consumer to whom the goods and services are supplied.
+            </td></tr><tr><td><a href="2f319aa1-0623-231e-fae5-b03540234753.htm">CustomerAccountNumber</a></td><td>
+            Consumer account number.
+            </td></tr><tr><td><a href="7ce92dbb-2afa-4911-6156-eea92c6ddb6a.htm">EndBillingDate</a></td><td>
+            End date of the billing period for which charges are applicable in <span class="code">dd-MMM-yyyy</span> format.
+            </td></tr><tr><td><a href="9aa4fb86-67eb-edbe-9127-5c14d5ee9e55.htm">FinalBill</a></td><td>
+            Identifier if the invoice is for a final bill.
+            </td></tr><tr><td><a href="7ef616d6-70bf-d5fd-b8c1-172ef25f342d.htm">FinalBillString</a></td><td>
+            The string representation of <a href="9aa4fb86-67eb-edbe-9127-5c14d5ee9e55.htm">FinalBill</a>.
+            </td></tr><tr><td><a href="5c733aef-563a-b45f-5775-c5be9e87af9c.htm">InvoiceIssueDate</a></td><td>
+            The date the invoice was generated in <span class="code">dd-MMM-yyyy</span> format.
+            </td></tr><tr><td><a href="6f4a2b44-548e-fade-0665-27e9805d544d.htm">InvoiceNumber</a></td><td>
+            Identifier number of the invoice.
+            <br />(Inherited from <a href="8d5ac5d9-7098-ed06-b53f-d2f8deb28cb5.htm">MsslInvoice</a>)</td></tr><tr><td><a href="70d63e12-1520-f3d7-1938-6aa75185dd59.htm">MsslCompanyRegistrationNumber</a></td><td>
+            MSSL’s Company registration number: 199504470N.
+            </td></tr><tr><td><a href="b6570e2b-9605-a895-8e18-00e4e48ea72f.htm">MsslGstNumber</a></td><td>
+            MSSL’s GST reference number: M2-8920920-4.
+            </td></tr><tr><td><a href="826d9e85-315e-2831-7e1e-780f8a1e1a1d.htm">OutstandingBalance</a></td><td>
+            Outstanding balance after account transactions are applied to balance brought forward.
+            </td></tr><tr><td><a href="d4bcaa61-e9f5-c9bd-32d4-ecba0c8af156.htm">PaymentDueDate</a></td><td>
+            Due date for the <a href="3d4bae50-3d96-a9b2-44c6-0f05370db900.htm">TotalAmountPayable</a> for the invoice.
+            </td></tr><tr><td><a href="4fb989c4-ca89-746c-a135-1f83907546cc.htm">Providers</a></td><td>
+            The MSSL provider information.
+            </td></tr><tr><td><a href="754c8f3b-41b2-b9db-d1fe-757bf97aa1aa.htm">ProviderTelephoneNumber</a></td><td>
+            Contact telephone number for the MSSL.
+            </td></tr><tr><td><a href="cfe41396-d581-d6dd-4a04-54673b7e3514.htm">RecipientAccountNumber</a></td><td>
+            The account number of the recipient.
+            <br />(Inherited from <a href="8d5ac5d9-7098-ed06-b53f-d2f8deb28cb5.htm">MsslInvoice</a>)</td></tr><tr><td><a href="9ddabd7a-eace-dccb-2519-d150ea3f7fd7.htm">RecipientName</a></td><td>
+            The name of the recipient to whom the goods and services are supplied.
+            <br />(Inherited from <a href="8d5ac5d9-7098-ed06-b53f-d2f8deb28cb5.htm">MsslInvoice</a>)</td></tr><tr><td><a href="1112cc55-9856-efd3-8aca-a24f767645c3.htm">SecurityDeposits</a></td><td>
+            Security deposit items.
+            </td></tr><tr><td><a href="3a5ccd8c-2878-4b83-6f07-ee47e2626750.htm">StartBillingDate</a></td><td>
+            Start date of the billing period for which charges are applicable in <span class="code">dd-MMM-yyyy</span> format.
+            </td></tr><tr><td><a href="66b858e9-6bf4-17f9-5e3a-d1e7bb1edb5f.htm">SupportingInfo</a></td><td>
+            Additional information.
+            </td></tr><tr><td><a href="f50bbec9-92b9-60db-7468-28d9a8762074.htm">SupportingInformation</a></td><td>
+            Additional supporting information.
+            <br />(Inherited from <a href="8d5ac5d9-7098-ed06-b53f-d2f8deb28cb5.htm">MsslInvoice</a>)</td></tr><tr><td><a href="9b8d8cf4-b6b4-5a80-4265-dd7a9587990b.htm">TaxNumber</a></td><td>
+            Tax statement for the invoice.
+            <br />(Inherited from <a href="8d5ac5d9-7098-ed06-b53f-d2f8deb28cb5.htm">MsslInvoice</a>)</td></tr><tr><td><a href="3d4bae50-3d96-a9b2-44c6-0f05370db900.htm">TotalAmountPayable</a></td><td>
+            Total charges applicable to the consumer.
+            </td></tr><tr><td><a href="22ffeb77-f227-e5fd-0f42-fe6e384388b0.htm">TotalCharges</a></td><td>
+            Total charges incurred.
+            <br />(Inherited from <a href="8d5ac5d9-7098-ed06-b53f-d2f8deb28cb5.htm">MsslInvoice</a>)</td></tr><tr><td><a href="6938f9fb-ef6e-0406-6049-f427a23b8ab7.htm">TotalCurrentCharges</a></td><td>
+            Total current charges for the billing period including Goods and Services Tax.
+            </td></tr><tr><td><a href="e0b652e6-9fa7-a0c1-9192-9bf95ab7f471.htm">TotalGstAmountPayable</a></td><td>
+            Total GST for consumer.
+            </td></tr><tr><td><a href="65697e8f-109c-6129-8760-86fcb375c884.htm">TotalGstApplicableAmount</a></td><td>
+            Total amount subject to GST for consumer.
+            </td></tr><tr><td><a href="9b047990-edf3-77df-9b22-834e9737a7b4.htm">TotalPayable</a></td><td>
+            The total payable amount.
+            <br />(Inherited from <a href="8d5ac5d9-7098-ed06-b53f-d2f8deb28cb5.htm">MsslInvoice</a>)</td></tr></table></div><h2 class="quickLinkHeader">Methods</h2><div id="IDBEASection"><table id="MethodList" class="table is-hoverable"><tr><td><a href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)" target="_blank" rel="noopener noreferrer">Equals</a></td><td><br />(Inherited from <a href="https://learn.microsoft.com/dotnet/api/system.object" target="_blank" rel="noopener noreferrer">Object</a>)</td></tr><tr><td><a href="https://learn.microsoft.com/dotnet/api/system.object.finalize" target="_blank" rel="noopener noreferrer">Finalize</a></td><td><br />(Inherited from <a href="https://learn.microsoft.com/dotnet/api/system.object" target="_blank" rel="noopener noreferrer">Object</a>)</td></tr><tr><td><a href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode" target="_blank" rel="noopener noreferrer">GetHashCode</a></td><td><br />(Inherited from <a href="https://learn.microsoft.com/dotnet/api/system.object" target="_blank" rel="noopener noreferrer">Object</a>)</td></tr><tr><td><a href="https://learn.microsoft.com/dotnet/api/system.object.gettype" target="_blank" rel="noopener noreferrer">GetType</a></td><td><br />(Inherited from <a href="https://learn.microsoft.com/dotnet/api/system.object" target="_blank" rel="noopener noreferrer">Object</a>)</td></tr><tr><td><a href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone" target="_blank" rel="noopener noreferrer">MemberwiseClone</a></td><td><br />(Inherited from <a href="https://learn.microsoft.com/dotnet/api/system.object" target="_blank" rel="noopener noreferrer">Object</a>)</td></tr><tr><td><a href="ff476129-6cf7-2885-00f0-caae25384bb0.htm">ShouldSerializeAccountTransactions</a></td><td>
+            Determines if <a href="798afc1b-390a-b80a-b892-c36183063b99.htm">AccountTransactions</a> should be serialized.
+            </td></tr><tr><td><a href="ecc870ff-b89f-59c2-f031-6b47df9083bb.htm">ShouldSerializeCharges</a></td><td>
+            Determines if <a href="fff16549-c873-f5c1-431e-429b07843851.htm">Charges</a> should be serialized.
+            </td></tr><tr><td><a href="b34a41fd-a323-5abe-3944-08ccf1587ab7.htm">ShouldSerializeConsumerAddress</a></td><td>
+            Determines if <a href="88917bb7-b06d-76fb-df98-8ebf8a86aa93.htm">ConsumerAddress</a> should be serialized.
+            </td></tr><tr><td><a href="6d285212-cd72-b9a0-11da-3687783499b4.htm">ShouldSerializeProviders</a></td><td>
+            Determines if <a href="4fb989c4-ca89-746c-a135-1f83907546cc.htm">Providers</a> should be serialized.
+            </td></tr><tr><td><a href="c3d313de-d9b3-51dc-8857-da48c34daad0.htm">ShouldSerializeSecurityDeposits</a></td><td>
+            Determines if <a href="1112cc55-9856-efd3-8aca-a24f767645c3.htm">SecurityDeposits</a> should be serialized.
+            </td></tr><tr><td><a href="eccf875f-b1e5-83d3-5744-ba6db610d25f.htm">ShouldSerializeSupportingInfo</a></td><td>
+            Determines if <a href="66b858e9-6bf4-17f9-5e3a-d1e7bb1edb5f.htm">SupportingInfo</a> should be serialized.
+            </td></tr><tr><td><a href="https://learn.microsoft.com/dotnet/api/system.object.tostring" target="_blank" rel="noopener noreferrer">ToString</a></td><td><br />(Inherited from <a href="https://learn.microsoft.com/dotnet/api/system.object" target="_blank" rel="noopener noreferrer">Object</a>)</td></tr></table></div><h2 class="quickLinkHeader">See Also</h2><div id="seeAlsoSection"><h4>Reference</h4><div><a href="9fb56c2c-a5d6-b320-a8ba-dcafc8a4e572.htm">Mssl.Ebt.Models.Messages.DataFiles Namespace</a></div></div></div><div id="InThisArticleColumn" class="column is-hidden-mobile"><nav class="menu sticky is-hidden"><p class="menu-label"><strong>In This Article</strong></p><ul id="InThisArticleMenu" class="menu-list"><li><a class="quickLink">Definition</a></li><li><a class="quickLink">Constructors</a></li><li><a class="quickLink">Properties</a></li><li><a class="quickLink">Methods</a></li><li><a class="quickLink">See Also</a></li></ul></nav></div></div></article></main><footer id="PageFooter" class="footer border-top py-3"><div class="columns"><div id="FooterContent" class="column"><div class="feedbackLink">Send comments on this topic to
+        <a id="HT_MailLink" href="mailto:jonbong1607%40hotmail.com?Subject=MSSL%20EBT%20System%20Data%20Message%20Model%20and%20Interface%20Definitions%20Class%20Library">Email</a></div>
+        <script type="text/javascript">
+        var HT_mailLink = document.getElementById("HT_MailLink");
+        HT_mailLink.href += ": " + document.title + "\u0026body=" + encodeURIComponent("Your feedback is used to improve the documentation and the product. Your e-mail address will not be used for any other purpose and is disposed of after the issue you report is resolved. While working to resolve the issue that you report, you may be contacted via e-mail to get further details or clarification on the feedback you sent. After the issue you report has been addressed, you may receive an e-mail to let you know that your feedback has been addressed.");
+        </script></div></div></footer><script>$(function(){
+SetDefaultLanguage("cs");
+LoadToc();
+InitializeQuickLinks();
+hljs.highlightAll();
+});</script></body></html>

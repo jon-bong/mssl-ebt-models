@@ -4,7 +4,7 @@
 [![NuGet Version (Emc.SewPlus.Nems.Models)](https://img.shields.io/nuget/v/Mssl.Ebt.Models.svg?style=flat-square)](https://www.nuget.org/packages/Mssl.Ebt.Models/)
 ![NuGet Downloads](https://img.shields.io/nuget/dt/Mssl.Ebt.Models)
 ![GitHub License](https://img.shields.io/github/license/jon-bong/mssl-ebt-models)
-[![API Docs](https://shields.io)](./docs/index.html)
+[![API Documentation](https://shields.io)](./docs/index.html)
 
 Data models of transmission messages and interface definitions of files and reports used by the _Electronic Business Transaction (EBT)_ system of the _Market Support Services Licensee (MSSL)_ for _Open Electricity Market (OEM)_ retailers in Singapore.
 

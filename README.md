@@ -17,7 +17,7 @@ All data models and interface definitions in this package are based on the _Mark
 ## 📚 Technical Documentation
 The API reference guide has been generated using Sandcastle. 
 
-👉 **[Browse the API Reference Document](./docs/index.html)**
+👉 **[Browse the Technical Documentation](./docs/index.html)**
 
 ### What's Inside?
 * **Namespaces & Classes:** Full code architecture breakdown.

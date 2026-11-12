@@ -218,7 +218,7 @@ Each of the following classes represents a CSV section (a group of delimited ent
 - `SrlpMeterUsageData`: Static Residential Load Profile (SRLP) usage data or MDA adjusted SRLP usage data for a single metering point.
 
 ## 🚀 Target Frameworks
-* **.NET:** Core 3.0, Core 3.1, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0
+* **.NET:** Core 3.0, Core 3.1, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0
 * **.NET Framework:** 3.5, 4.0, 4.5, 4.5.2, 4.6.1, 4.6.2, 4.7.2, 4.8, 4.8.1
 * **.NET Standard:** 2.0, 2.1
 
